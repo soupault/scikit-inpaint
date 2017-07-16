@@ -2,16 +2,19 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
+from pip.req import parse_requirements
 
-with open('README.rst') as readme_file:
+
+with open('README.md') as readme_file:
     readme = readme_file.read()
 
-requirements = [
-    # TODO: put package requirements here
-]
+install_reqs = parse_requirements('requirements.txt',
+                                  session='hack')
+requirements = [str(ir.req) for ir in install_reqs]
 
 test_requirements = [
-    # TODO: put package test requirements here
+    'numpy',
+    'pytest'
 ]
 
 setup(
@@ -43,8 +46,8 @@ setup(
         "Programming Language :: Python :: 2",
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     test_suite='tests',
     tests_require=test_requirements
