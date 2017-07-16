@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from setuptools import setup
+from setuptools import setup, find_packages
 from pip.req import parse_requirements
 
 
@@ -18,18 +18,14 @@ test_requirements = [
 ]
 
 setup(
-    name='skinpaint',
+    name='scikit-inpaint',
     version='0.1.0',
     description="Collection of image inpainting algorithms implemented in Python",
     long_description=readme,
     author="Egor Panfilov",
     author_email='egor.v.panfilov@gmail.com',
-    url='https://github.com/soupault/skinpaint',
-    packages=[
-        'skinpaint',
-    ],
-    package_dir={'skinpaint':
-                 'skinpaint'},
+    url='https://github.com/soupault/scikit-inpaint',
+    packages=find_packages(),
     include_package_data=True,
     install_requires=requirements,
     zip_safe=False,
